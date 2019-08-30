@@ -1,3 +1,10 @@
+- hosts: all
+  tasks:
+    - name: Install vim
+      apt:
+        name: vim
+        state: present
+
 - hosts: app
   tasks:
     - name: Install python setuptools
@@ -11,3 +18,15 @@
     - name: Install flask for python
       pip:
         name: flask
+        state: present
+
+- hosts: db
+  tasks:
+    - name: Install postgresql
+      apt:
+        name: postgresql
+        state: present
+    - name: Install postgresql-client
+      apt:
+        name: postgresql-client
+        state: present
