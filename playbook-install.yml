@@ -22,6 +22,20 @@
         name: flask
         state: present
 
+- hosts: proxy
+  tasks:
+    - name: Install proxy
+      apt:
+        name: 
+        state: 
+    - name: Copy file proxy configuration 
+      copy:
+        src: source:haproxy.cft
+        dest: /etc/haproxy/haproxy.cft
+        owner: root
+        group: root
+        mode: '0644'
+
 - hosts: db
   tasks:
     - name: Install postgresql
